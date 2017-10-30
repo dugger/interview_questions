@@ -8,7 +8,7 @@ The gut instinct on this one is to use recursion.  In fact the interviewer might
 ### It's a trap!
 The recursive approach to this question is inefficient and unnecessary.  This is the common implementation using recursion.  It works fine, and returns the 23rd digit in roughly 1/100th of a second.
 
-> [./recursive_fib.rb](../blob/master/recursive_fib.rb)
+> [./recursive_fib.rb](../recursive_fib.rb)
 ```Ruby
 def recursive_fib(n)
   return n if (0..1).include? n
@@ -20,7 +20,7 @@ So, what's the problem?  Well, since the function often calls itself twice with 
 
 Fibonacci is a simple calculation to iterate over, so don't over think it.  Here's the most basic implementation I've come up with; on my computer it calculates the millionth Fibonacci digit in about 18 seconds.
 
-> [./simple_fib.rb](../blob/master/simple_fib.rb)
+> [./simple_fib.rb](../simple_fib.rb)
 ```Ruby
 def simple_fib(n)
   x,y = [0,1]
@@ -37,7 +37,7 @@ Sure, it's three more lines of code, but its straight forward, simple, and damn 
 
 Wait, can't you speed up the recursive approach with cacheing!? Sure you can, like this:
 
-> [./recursive_fib_with_cache.rb](../blob/master/recursive_fib_with_cache.rb)
+> [./recursive_fib_with_cache.rb](../recursive_fib_with_cache.rb)
 ```Ruby
 def recursive_fib_with_cache(n)
   @cache ||= {}
@@ -59,7 +59,7 @@ At the largest digit I can calculate with this function, 9344, I get my result i
 
 The previous examples as so... functional, but Ruby is an Object Oriented Language. We should a model for this, but we shouldn't just wrap it up in a class without making it better.  We can move the starting values into the initialize method, set the defaults, but add support for nonstandard starting numbers.
 
-> [./fib_class.rb](../blob/master/fib_class.rb)
+> [./fib_class.rb](../fib_class.rb)
 
 ```Ruby
 class Fib
@@ -83,7 +83,7 @@ There's one more thing we should do to make this better.  In fact, its the thing
 
 We know that TDD is the right thing to do, so do it, even in a stupid coding interview.  Here I've broken up the tests into their own file, but most coding interviews only give you a glorified text editor.  That's fine, just put the tests at the bottom after the class and everything should run just fine.  There's probably not a test framework available, so don't rely on one.  Just check that you are getting the results back you expect and print out the result.
 
-> [./fib_test.rb](../blob/master/fib_test.rb)
+> [./fib_test.rb](../fib_test.rb)
 
 ```Ruby
 require './fib.rb'
