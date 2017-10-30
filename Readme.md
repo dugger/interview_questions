@@ -15,7 +15,7 @@ Hopefully this can be informative to other preparing for the dreaded coding inte
 2. No Frameworks! ...
 
 ### Table of Contents
-#### Fibonacci
+#### [Fibonacci](../blob/master/fibonacci/Readme.rb)
 Calculate the *n*th digit of the Fibonacci sequence.
 
 #### Finding Pairs

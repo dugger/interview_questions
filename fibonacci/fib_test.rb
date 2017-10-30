@@ -1,10 +1,9 @@
-require "benchmark"
-require "./fib.rb"
-puts f = Fib.new
-puts f.cache[50] == nil
-puts f.calc_with_cache(100) == 354224848179261915075
-puts f.cache[50] == 12586269025
-puts Benchmark.realtime {f.calc(1000)} > Benchmark.realtime {f.calc_with_cache(1000)}
+require './fib.rb'
+f1 = Fib.new
+p f1.calc(10) == 0
+p f1.calc(10) == 55
+p f1.calc(100) == 354224848179261915075
 
-
-# TODO Test nonstadard x & y.
+f2 = Fib.new(3,4)
+p f2.calc(5) == 29
+p f2.calc(20) == 39603
