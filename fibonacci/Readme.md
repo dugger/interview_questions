@@ -62,7 +62,7 @@ At the largest digit I can calculate with this function, 9344, I get my result i
 
 The previous examples as so... functional, but Ruby is an Object Oriented Language. We should a model for this, but we shouldn't just wrap it up in a class without making it better.  We can move the starting values into the initialize method, set the defaults, but add support for nonstandard starting numbers.
 
-> [./fib_class.rb](./fib_class.rb)
+> [./fib.rb](./fib.rb)
 
 ```Ruby
 class Fib
