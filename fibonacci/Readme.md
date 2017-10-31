@@ -1,11 +1,15 @@
 ## Fibonacci
-*Calculate the *n*th digit of the Fibonacci sequence.*
+*Calculate the *n*<sup>th</sup> digit of the Fibonacci sequence.*
 
 I think it's safe to say that no software developer in their day to day work has ever actually had to write this algorithm.  Like most coding interview questions, it's not representative of the real work of software development.  How do we deal with this?  Well, short of telling the interviewer how dumb it is, let's see how we can use this question to show that we can write actual code and not just output memorized functions.
 
 ### Recusrion...
 
-The gut instinct on this one is to use recursion.  In fact the interviewer might be wanting you to do that very thing to show that you understand the concept.  It even seems to make sense to do since Fibonacci is just `f(n) == f(n-1) + f(n-2)`, but in the words of our favorite Admiral...
+The gut instinct on this one is to use recursion.  In fact the interviewer might be wanting you to do that very thing to show that you understand the concept.  It even seems to make sense to do since Fibonacci is just:
+
+```f(n) == f(n-1) + f(n-2)```
+ 
+ In the words of our favorite Admiral...
 
 ### It's a trap!
 The recursive approach to this question is inefficient, unnecessary, and doesn't really work.  Here is the common implementation using recursion.  It seems to work, and returns the 23rd digit in roughly 1/100th of a second.
