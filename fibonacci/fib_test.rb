@@ -1,6 +1,6 @@
 require './fib.rb'
 f1 = Fib.new
-p f1.calc(10) == 0
+p f1.calc(0) == 0
 p f1.calc(10) == 55
 p f1.calc(100) == 354224848179261915075
 

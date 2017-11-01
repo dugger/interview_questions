@@ -3,12 +3,12 @@
 
 I think it's safe to say that no software developer in their day to day work has ever actually had to write this algorithm.  Like most coding interview questions, it's not representative of the real work of software development.  How do we deal with this?  Well, short of telling the interviewer how dumb it is, let's see how we can use this question to show that we can write actual code and not just output memorized functions.
 
-### Recusrion...
+### Recursion...
 
 The gut instinct on this one is to use recursion.  In fact the interviewer might be wanting you to do that very thing to show that you understand the concept.  It even seems to make sense to do since Fibonacci is just:
 
 ```f(n) == f(n-1) + f(n-2)```
- 
+
  In the words of our favorite Admiral...
 
 ### It's a trap!
@@ -41,7 +41,7 @@ Sure, it's three more lines of code, but its straight forward, simple, and damn 
 
 ### Caching
 
-"Wait", the interviewer might say, "can't you speed up the recursive approach with caching!?" 
+"Wait", the interviewer might say, "can't you speed up the recursive approach with caching!?"
 
 Sure you can, like this:
 
@@ -59,7 +59,7 @@ Before we recursively call the function (twice), check the cache to see if we al
 
 > SystemStackError: stack level too deep
 
-Damn! Turns out this implementation will hit a stack level too deep error when calculating digit 9345 or greater.  This is simply a limitation of Ruby, and while there are some possible work arounds, infinite stack depth isn't really a solution, and even if it was, this approach isn't faster. At the largest digit I can calculate with this function, 9344, I get my result in 1/100 of a seconds, which is still slower that the 8/1000 of a second it takes with simple_fib. 
+Damn! Turns out this implementation will hit a stack level too deep error when calculating digit 9345 or greater.  This is simply a limitation of Ruby, and while there are some possible work arounds, infinite stack depth isn't really a solution, and even if it was, this approach isn't faster. At the largest digit I can calculate with this function, 9344, I get my result in 1/100 of a seconds, which is still slower that the 8/1000 of a second it takes with simple_fib.
 
 Simple Fib for the win! ...but wait, there's more!
 
@@ -84,11 +84,11 @@ class Fib
 end
 ```
 
-That's more like the code I write at my job, and it has more options to boot.  
+That's more like the code I write at my job, and it has more options to boot.
 
 There's one more thing we should do to make this better.  In fact, its the thing we should have done first...
 
-### Unit Test
+### Unit Tests
 
 We know that TDD is the right thing to do, so do it, even in a stupid coding interview.  Here I've broken up the tests into their own file, but most coding interviews only give you a glorified text editor.  That's fine, just put the tests at the bottom after the class and everything should run just fine.  There's probably not a test framework available, so don't rely on one.  Just check that you are getting the results back you expect and print out the result.
 
@@ -105,4 +105,6 @@ p f2.calc(5) == 29
 p f2.calc(20) == 39603
 ```
 
-If I saw someone write tests before writing other code in a interview I'd probably tell them to stop; they already passed.
+Sure, these tests are very basic, just asserting we get the value we expect, but this problem isn't complicated and the expected results are known values, so I'll leave it at that.
+
+We could go on and test what happens when we pass a negative number to the calc method, or when we pass a string or other object to when we initialize.  This code doesn't do any input validation, so it wont handle those cases well.  I think I'll save that for another time.
