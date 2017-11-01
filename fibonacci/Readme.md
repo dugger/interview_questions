@@ -1,17 +1,18 @@
 ## Fibonacci
 *Calculate the *n*<sup>th</sup> digit of the Fibonacci sequence.*
 
-I think it's safe to say that no software developer in their day to day work has ever actually had to write this algorithm.  Like most coding interview questions, it's not representative of the real work of software development.  How do we deal with this?  Well, short of telling the interviewer how dumb it is, let's see how we can use this question to show that we can write actual code and not just output memorized functions.
+I think it's safe to say that no software developer in their day to day work has ever actually had to write this algorithm.  Like most coding interview questions, it's not representative of the real work of software development.  How do you deal with this?  Well, short of telling the interviewer how dumb it is, let's see how you can use this question to show that you can write actual code and not just output memorized functions.
 
-### Recursion...
+### Recursion
 
 The gut instinct on this one is to use recursion.  In fact the interviewer might be wanting you to do that very thing to show that you understand the concept.  It even seems to make sense to do since Fibonacci is just:
 
 ```f(n) == f(n-1) + f(n-2)```
 
- In the words of our favorite Admiral...
+In the words of our favorite Admiral...
 
-### It's a trap!
+*__It's a trap!__*
+
 The recursive approach to this question is inefficient, unnecessary, and doesn't really work.  Here is the common implementation using recursion.  It seems to work, and returns the 23rd digit in roughly 1/100th of a second.
 
 > [./recursive_fib.rb](./recursive_fib.rb)
@@ -55,7 +56,7 @@ def recursive_fib_with_cache(n)
 end
 ```
 
-Before we recursively call the function (twice), check the cache to see if we already have the value.  If not, make the calls to calculate it and store it in the cache.  It's easy, and it works.  Now calculating the 45th digit of Fibonacci is practically instant (4.6e-05 seconds) and only takes 89 function calls. Great, right? Let's try for the millionth digit again.  I wonder if it can beat the 18 seconds from the simple approach...
+Before recursively calling the function (twice), I check the cache to see if I already have the value.  If not, make the calls to calculate it and store it in the cache.  It's easy, and it works.  Now calculating the 45th digit of Fibonacci is practically instant (4.6e-05 seconds) and only takes 89 function calls. Great, right? Let's try for the millionth digit again.  I wonder if it can beat the 18 seconds from the simple approach...
 
 > SystemStackError: stack level too deep
 
@@ -65,7 +66,7 @@ Simple Fib for the win! ...but wait, there's more!
 
 ### OO
 
-The previous examples as so... functional, but Ruby is an Object Oriented Language. We should a model for this, but we shouldn't just wrap it up in a class without making it better.  We can move the starting values into the initialize method, set the defaults, but add support for nonstandard starting numbers.
+The previous examples as so... functional, but Ruby is an Object Oriented Language. We should make a model for this, but don't just wrap it up in a class without making it better.  We can move the starting values into the initialize method, set the defaults, and add support for nonstandard starting numbers.
 
 > [./fib.rb](./fib.rb)
 ```Ruby
@@ -84,13 +85,13 @@ class Fib
 end
 ```
 
-That's more like the code I write at my job, and it has more options to boot.
+That's a bit more like the code I write at my job, and it has more options to boot.
 
-There's one more thing we should do to make this better.  In fact, its the thing we should have done first...
+There's one more thing I would do to make this better.  In fact, its the thing I should have done first...
 
 ### Unit Tests
 
-We know that TDD is the right thing to do, so do it, even in a stupid coding interview.  Here I've broken up the tests into their own file, but most coding interviews only give you a glorified text editor.  That's fine, just put the tests at the bottom after the class and everything should run just fine.  There's probably not a test framework available, so don't rely on one.  Just check that you are getting the results back you expect and print out the result.
+Test Driven Development is the right thing to do, so do it, even in a stupid coding interview.  Here I've broken up the tests into their own file, but most coding interviews only give you a glorified text editor.  That's fine, just put the tests at the bottom after the class and everything should run just fine.  There's probably not a test framework available, so don't rely on one.  Just check that you are getting the results back you expect and print out the result.
 
 > [./fib_test.rb](./fib_test.rb)
 ```Ruby
@@ -107,4 +108,4 @@ p f2.calc(20) == 39603
 
 Sure, these tests are very basic, just asserting we get the value we expect, but this problem isn't complicated and the expected results are known values, so I'll leave it at that.
 
-We could go on and test what happens when we pass a negative number to the calc method, or when we pass a string or other object to when we initialize.  This code doesn't do any input validation, so it wont handle those cases well.  I think I'll save that for another time.
+I could go on and test what happens when we pass a negative number to the calc method, or when we pass a string or other object to when we initialize.  This code doesn't do any input validation, so it wont handle those cases well.  I think I'll save that for another time.
